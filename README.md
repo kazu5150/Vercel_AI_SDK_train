@@ -2,35 +2,96 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+# Better than Nothing
+
+このプロジェクトは、Next.js をベースにしたチャットアプリケーションです。  
+「ai/react」パッケージの useChat フックを活用し、OpenAI の GPT-3.5 を利用してリアルタイムでチャット応答を生成・表示します。  
+また、Tailwind CSS を使ったスタイリッシュな UI や、レスポンシブデザインを取り入れており、どのデバイスでも快適にご利用いただけます。
+
+## 特徴
+
+- **Next.js セットアップ**  
+  Next.js の最新機能を活用したシングルページアプリケーション。
+
+- **リアルタイムチャット**  
+  useChat フックを利用し、ユーザーの入力に対してチャット応答をストリーミング表示。
+
+- **OpenAI GPT-3.5 の活用**  
+  最新の AI モデルを用いた自然な対話体験を実現。
+
+- **モダンな UI デザイン**  
+  Tailwind CSS を活用し、直感的で快適なユーザーインターフェースを提供。
+
+## 開発の始め方
+
+以下の手順でプロジェクトをセットアップし、ローカルサーバーを起動してください。
+
+1. プロジェクトのクローン
+
+```bash
+git clone https://github.com/yourusername/better-than-nothing.git
+cd better-than-nothing
+```
+
+
+2. 依存パッケージのインストール
+
+```bash
+npm install
+```
+
+3. 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. ブラウザでアクセス
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## プロジェクトの構成
 
-## Learn More
+### ファイル構造
 
-To learn more about Next.js, take a look at the following resources:
+my-ai-project/
+├── app/
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ├── page.tsx
+    ├── layout.tsx
+    ├── api/
+    │ └── chat.ts
+    └── components/
+        ├── Chat.tsx
+        └── Message.tsx 
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### コードの概要
 
-## Deploy on Vercel
+#### app/page.tsx
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    チャット画面のコンポーネント。
+    チャット履歴を表示し、ユーザーの入力を受け取り、API リクエストを送信して応答を受け取ります。
+    ストリーミングで応答を表示し、ユーザーの入力をリアルタイムで処理します。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### app/layout.tsx
+
+    アプリケーションのレイアウトを定義します。
+    チャット画面のレイアウトを設定し、ヘッダーとフッターを含めます。
+
+#### app/api/chat.ts
+
+    チャット API のルートハンドラー。
+    ユーザーの入力を受け取り、OpenAI の GPT-3.5 モデルを使用して応答を生成します。
+
+#### app/components/Chat.tsx
+
+    チャット履歴を表示するコンポーネント。
+    メッセージの表示、ユーザーの入力フィールド、送信ボタンを含めます。
+
+#### app/components/Message.tsx
+
+    チャットメッセージを表示するコンポーネント。
+    ユーザーのメッセージと AI の応答を表示します。
+
